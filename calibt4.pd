@@ -1,0 +1,16 @@
+#N canvas 0 22 1280 665 10;
+#X obj 101 101 cnv 15 230 260 empty empty Tongue_4_Pitch_Calibration
+20 12 0 14 -203904 -66577 0;
+#X obj 133 183 hsl 128 15 0 5 0 0 cross3t4 t4c3 crossover_3 -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 133 223 hsl 128 15 0 5 0 0 cross2t4 t4c2 crossover_2 -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 133 263 hsl 128 15 0 5 0 0 cross1t4 t4c1 crossover_1 -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 133 303 hsl 128 15 0 5 0 0 endt4 t4e End -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 281 182 5 0 0 0 - cross3t4 -;
+#X floatatom 281 222 5 0 0 0 - cross2t4 -;
+#X floatatom 281 262 5 0 0 0 - cross1t4 -;
+#X floatatom 281 302 5 0 0 0 - endt4 -;
+#X coords 0 -1 1 1 230 260 1 100 100;

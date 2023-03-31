@@ -1,0 +1,49 @@
+#N canvas 0 49 1280 665 10;
+#X declare -lib zexy;
+#X declare -lib zexy;
+#X declare -lib zexy;
+#X declare -lib zexy;
+#X obj 18 26 arduinoReceive;
+#X obj 275 162 cnv 15 250 200 empty empty Amplitude_Calibrataion 20
+12 0 14 -204800 -66577 0;
+#X obj 297 228 hsl 128 15 0 127 0 0 trim1 ptrim1 trim1 -2 -8 0 10 -262144
+-1 -1 9700 1;
+#X obj 297 258 hsl 128 15 0 127 0 0 trim2 ptrim2 trim2 -2 -8 0 10 -262144
+-1 -1 4100 1;
+#X obj 297 288 hsl 128 15 0 127 0 0 trim3 ptrim3 trim3 -2 -8 0 10 -262144
+-1 -1 3700 1;
+#X obj 297 318 hsl 128 15 0 127 0 0 trim4 ptrim4 trim4 -2 -8 0 10 -262144
+-1 -1 3600 1;
+#X floatatom 445 226 5 0 0 2 level trim1 -;
+#X floatatom 445 256 5 0 0 0 - trim2 -;
+#X floatatom 445 286 5 0 0 0 - trim3 -;
+#X floatatom 445 316 5 0 0 0 - trim4 -;
+#X floatatom 485 226 5 0 0 2 Output acalc1 -;
+#X floatatom 485 256 5 0 0 0 - acalc2 -;
+#X floatatom 485 286 5 0 0 0 - acalc3 -;
+#X floatatom 485 316 5 0 0 0 - acalc4 -;
+#X obj 275 96 cnv 15 250 60 empty empty Pitch_Smoothing 20 12 0 14
+-260097 -66577 0;
+#X obj 293 135 hsl 128 15 1 20 0 0 irmedianfliltout irmedianflilt ir_median_filter
+-2 -8 0 10 -262144 -1 -1 2674 1;
+#X floatatom 428 135 5 0 0 0 - med -;
+#X obj 17 95 outstage~;
+#X obj 117 25 defaults;
+#X obj 18 52 incoming;
+#X obj 601 96 Edisplay;
+#X obj 530 96 cnv 15 65 166 empty empty empty 20 12 0 14 -139232 -66577
+0;
+#X obj 535 117 vsl 15 100 3 1000 0 0 ampfilt empty Amp_Filter 0 -9
+0 10 -262144 -1 -1 0 1;
+#X floatatom 536 236 5 0 0 1 Hz ampfilt -;
+#X obj 647 95 calibt1;
+#X obj 884 95 calibt2;
+#X obj 647 362 calibt3;
+#X obj 884 362 calibt4;
+#X text 661 67 Only Calibrate if absolutely neccasary;
+#X obj 16 425 monitor;
+#X text 295 27 This is the main patch;
+#X connect 17 0 29 0;
+#X connect 17 1 29 1;
+#X connect 19 0 17 0;
+#X connect 19 1 17 1;

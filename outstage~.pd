@@ -1,0 +1,82 @@
+#N canvas 0 22 1273 524 10;
+#X obj 821 232 r Egain;
+#X obj 827 264 * 5;
+#X obj 784 243 z~ 1;
+#X obj 735 291 +~;
+#X obj 752 267 *~;
+#X obj 709 214 hip~;
+#X obj 936 214 hip~;
+#X obj 736 324 freeverb~;
+#X obj 637 92 inlet~;
+#X obj 987 92 inlet~;
+#X obj 68 107 cnv 15 250 320 empty empty Outstage 20 12 0 14 -203904
+-66577 0;
+#X obj 101 146 hsl 128 15 0 1000 0 0 lpassdisp2 lpass2 Front_Speaker_Hi_Pass
+-2 -8 0 10 -262144 -1 -1 381 1;
+#X obj 101 187 hsl 128 15 0 1000 0 0 lpassdisp lpass Rear_Speaker_H_Pass
+-2 -8 0 10 -262144 -1 -1 381 1;
+#X floatatom 261 187 5 0 0 1 Hz lpassdisp -;
+#X floatatom 261 146 5 0 0 1 Hz lpassdisp2 -;
+#X obj 87 375 output~;
+#X obj 82 218 cnv 15 230 145 empty empty reverb 20 12 0 14 -204800
+-66577 0;
+#X obj 90 252 hsl 100 10 0 0.99 0 0 rsize rsizeset room_size -2 -8
+1 10 -262144 -1 -1 5000 1;
+#X floatatom 201 246 5 0 0 0 - rsize -;
+#X msg 612 227 roomsize \$1;
+#X floatatom 562 226 5 0 0 0 - rsize -;
+#X floatatom 562 246 5 0 0 0 - damp -;
+#X msg 608 248 damping \$1;
+#X obj 90 282 hsl 100 10 0 0.99 0 0 damp dampset dammping -2 -8 1 10
+-262144 -1 -1 8000 1;
+#X floatatom 201 276 5 0 0 0 - damp -;
+#X floatatom 562 266 5 0 0 0 - width -;
+#X msg 612 271 width \$1;
+#X obj 90 312 hsl 100 10 0 0.99 0 0 width widthset width -2 -8 1 10
+-262144 -1 -1 3000 1;
+#X floatatom 201 306 5 0 0 0 - width -;
+#X obj 90 342 hsl 100 10 0 0.99 0 0 mix mixset mix -2 -8 1 10 -262144
+-1 -1 3000 1;
+#X floatatom 201 336 5 0 0 0 - mix -;
+#X floatatom 561 290 5 0 0 0 - mix -;
+#X obj 455 305 expr 1 - $f1;
+#X msg 612 293 wet \$1;
+#X msg 612 315 dry \$1;
+#X obj 759 426 outlet~;
+#X obj 829 426 outlet~;
+#X obj 793 394 *~;
+#X obj 823 394 *~;
+#X obj 692 363 r gainL;
+#X obj 892 373 r gainL;
+#X connect 0 0 1 0;
+#X connect 1 0 4 1;
+#X connect 2 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 1;
+#X connect 7 0 37 0;
+#X connect 7 1 38 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 11 0 5 1;
+#X connect 12 0 6 1;
+#X connect 19 0 7 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 0;
+#X connect 25 0 26 0;
+#X connect 26 0 7 0;
+#X connect 31 0 33 0;
+#X connect 31 0 32 0;
+#X connect 32 0 34 0;
+#X connect 33 0 7 0;
+#X connect 34 0 7 0;
+#X connect 37 0 35 0;
+#X connect 37 0 15 0;
+#X connect 38 0 36 0;
+#X connect 38 0 15 1;
+#X connect 39 0 37 1;
+#X connect 40 0 38 1;
+#X coords -1 -1 1 1 250 320 1 67 105;

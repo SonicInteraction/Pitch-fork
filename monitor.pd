@@ -1,0 +1,23 @@
+#N canvas 214 94 882 525 10;
+#X obj 100 103 cnv 15 385 175 empty empty Gain_Section 20 12 0 14 -204786
+-66577 0;
+#X obj 107 139 scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
+135 135 0;
+#X obj 305 139 scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
+135 135 0;
+#X msg 211 112 range -1 1;
+#X obj 247 151 vsl 15 90 0.005 0.05 0 0 gainL gainLset gain 0 -9 0
+10 -262144 -1 -1 2967 1;
+#X floatatom 247 253 5 0 0 0 - gainL -;
+#X obj 445 151 vsl 15 90 0.05 0.1 0 0 gainR gainRset gain 0 -9 0 10
+-262144 -1 -1 890 1;
+#X floatatom 445 253 5 0 0 0 - gainR -;
+#X obj 261 86 loadbang;
+#X obj 92 73 inlet~;
+#X obj 432 73 inlet~;
+#X connect 3 0 2 0;
+#X connect 3 0 1 0;
+#X connect 8 0 3 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X coords 0 -1 1 1 385 175 1 100 100;
